@@ -12,13 +12,11 @@ import android.widget.TextView;
 import com.rocketechit.recyclerview.MainActivity;
 import com.rocketechit.recyclerview.R;
 
-import java.util.List;
-
 public class AdapterClass_Recycler extends RecyclerView.Adapter<AdapterClass_Recycler.ViewClass> {
     Context context;
     int[] images;
     String[] name;
-    //for onlick from java class (Second ....)
+    //for onClick from java class (Second ....)
     private static ClickListener clickListener;
 
     public AdapterClass_Recycler(MainActivity mainActivity, int[] images, String[] name) {
@@ -49,7 +47,7 @@ public class AdapterClass_Recycler extends RecyclerView.Adapter<AdapterClass_Rec
         return images.length;
     }
 
-    //implement interface for onlick from java class (third ....)
+    //implement interface for onClick from java class (third ....)
     public class ViewClass extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnClickListener {
 
         ImageView imageView;
@@ -64,7 +62,7 @@ public class AdapterClass_Recycler extends RecyclerView.Adapter<AdapterClass_Rec
             imageView = itemView.findViewById(R.id.imageView);
             nameTV = itemView.findViewById(R.id.name_TV);
         }
-        //Override this method for onlick from java class (fourth ....)
+        //Override this method for onClick from java class (fourth ....)
         @Override
         public void onClick(View v) {
             clickListener.onItemClick(getAdapterPosition(), v);
@@ -78,17 +76,11 @@ public class AdapterClass_Recycler extends RecyclerView.Adapter<AdapterClass_Rec
 
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ViewClass holder, int position, @NonNull List<Object> payloads) {
-        super.onBindViewHolder(holder, position, payloads);
-        holder.setIsRecyclable(true);
-    }
-
-    //for onlick from java class
+    //for onClick from java class
     public void setOnItemClickListener(ClickListener clickListener) {
         AdapterClass_Recycler.clickListener = clickListener;
     }
-//for onlick from java class (First ....)
+//for onClick from java class (First ....)
     public interface ClickListener {
         void onItemClick(int position, View v);
         void onItemLongClick(int position, View v);
